@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -23,12 +24,26 @@ class AddressBook
     /**
      * @var string|null
      * @ORM\Column(name="first_name", type="string", nullable=true)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Your first name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     * )
      */
     protected $firstName;
 
     /** @var
      * string|null
      * @ORM\Column(name="last_name", type="string", nullable=true)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Your last name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your last name cannot be longer than {{ limit }} characters"
+     * )
      */
     protected $lastName;
 
@@ -47,12 +62,14 @@ class AddressBook
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\City")
      * @ORM\JoinColumn(name="city_id", referencedColumnName="id", nullable=false, onDelete="RESTRICT")
+     * @Assert\NotNull
      */
     protected $city;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Country")
      * @ORM\JoinColumn(name="country_id", referencedColumnName="id", nullable=false, onDelete="RESTRICT")
+     * @Assert\NotNull
      */
     protected $country;
 
@@ -71,6 +88,10 @@ class AddressBook
     /**
      * @var string|null
      * @ORM\Column(type="string", nullable=true)
+     * * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
+     * )
      */
     protected $email;
 
