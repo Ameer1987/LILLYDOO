@@ -4,8 +4,8 @@
     <h1>Addressbook edit</h1>
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+    {{ form_widget(edit_form) }}
+    <input type="submit" value="Edit"/>
     {{ form_end(edit_form) }}
 
     <ul>
@@ -14,8 +14,20 @@
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+            <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
     </ul>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('#appbundle_addressbook_country').on('change', function () {
+            $('#appbundle_addressbook_city option[data-country-id!=' + $(this).val() + ']').hide();
+            $('#appbundle_addressbook_city option[data-country-id=' + $(this).val() + ']').show();
+            $('#appbundle_addressbook_city').val('');
+        });
+        $('#appbundle_addressbook_city option[data-country-id!=' + $('#appbundle_addressbook_country').val() + ']').hide();
+    </script>
 {% endblock %}

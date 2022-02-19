@@ -4,8 +4,8 @@
     <h1>Addressbook creation</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+    {{ form_widget(form) }}
+    <input type="submit" value="Create"/>
     {{ form_end(form) }}
 
     <ul>
@@ -13,4 +13,16 @@
             <a href="{{ path('addressbook_index') }}">Back to the list</a>
         </li>
     </ul>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('#appbundle_addressbook_country').on('change', function () {
+            $('#appbundle_addressbook_city option[data-country-id!=' + $(this).val() + ']').hide();
+            $('#appbundle_addressbook_city option[data-country-id=' + $(this).val() + ']').show();
+            $('#appbundle_addressbook_city').val('');
+        });
+        $('#appbundle_addressbook_city option[data-country-id!=' + $('#appbundle_addressbook_country').val() + ']').hide();
+    </script>
 {% endblock %}

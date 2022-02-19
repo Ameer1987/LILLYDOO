@@ -2,6 +2,8 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\City;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -14,11 +16,19 @@ class AddressBookType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('firstName')->add('lastName')->add('street')->add('zip')->add('phoneNumber')->add('email')->add('picture')->add('country')->add('city');
-        $builder->add('birthday', DateType::class, [
-            'widget' => 'single_text',
-            'input' => 'datetime'
-        ]);
+        $builder->add('firstName')->add('lastName')->add('street')->add('zip')->add('phoneNumber')->add('email')->add('picture')->add('country');
+        $builder
+            ->add('city', EntityType::class, [
+                'class' => City::class,
+                'choice_attr' => function ($choice, $key, $value) {
+                    /** @var City $choice */
+                    return ['data-country-id' => $choice->getCountry()->getId()];
+                },
+            ])
+            ->add('birthday', DateType::class, [
+                'widget' => 'single_text',
+                'input' => 'datetime'
+            ]);
     }
 
     /**

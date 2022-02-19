@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="303f9873-4846-4024-b6d4-1175c13e4b78" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/addressbook/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/addressbook/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/AddressBook.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/AddressBook.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/addressbook/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/addressbook/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/addressbook/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/addressbook/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Form/AddressBookType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Form/AddressBookType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,6 +76,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -95,7 +96,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1645258314589</updated>
-      <workItem from="1645258316607" duration="6723000" />
+      <workItem from="1645258316607" duration="9412000" />
     </task>
     <task id="LOCAL-00001" summary="Add orm configuration">
       <created>1645263356330</created>
@@ -160,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645264652737</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Update datetime widget">
+      <created>1645265055611</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1645265055611</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +183,7 @@
     <MESSAGE value="to string functions" />
     <MESSAGE value="Address book crud" />
     <MESSAGE value="index page" />
-    <option name="LAST_COMMIT_MESSAGE" value="index page" />
+    <MESSAGE value="Update datetime widget" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update datetime widget" />
   </component>
 </project>
