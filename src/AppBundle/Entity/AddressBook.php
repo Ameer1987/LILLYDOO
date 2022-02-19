@@ -211,7 +211,7 @@ class AddressBook
     /**
      * {@inheritdoc}
      */
-    public function setBirthday(\DateTimeInterface $birthday)
+    public function setBirthday($birthday)
     {
         $this->birthday = $birthday;
     }

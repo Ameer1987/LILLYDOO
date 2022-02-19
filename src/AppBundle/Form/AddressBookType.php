@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,9 +14,13 @@ class AddressBookType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('firstName')->add('lastName')->add('street')->add('zip')->add('phoneNumber')->add('birthday')->add('email')->add('picture')->add('city')->add('country');
+        $builder->add('firstName')->add('lastName')->add('street')->add('zip')->add('phoneNumber')->add('email')->add('picture')->add('country')->add('city');
+        $builder->add('birthday', DateType::class, [
+            'widget' => 'single_text',
+            'input' => 'datetime'
+        ]);
     }
-    
+
     /**
      * {@inheritdoc}
      */
