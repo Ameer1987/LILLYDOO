@@ -21,7 +21,9 @@
         <tbody>
         {% for addressBook in addressBooks %}
             <tr>
-                <td><img style="max-width: 100px;max-height: 100px;" src="{{ pictures_path~'/'~addressBook.picture }}"/>
+                <td>
+                    <img style="max-width: 100px;max-height: 100px;" src="{{ pictures_path~'/'~addressBook.picture }}"/>
+                </td>
                 <td><a href="{{ path('addressbook_show', { 'id': addressBook.id }) }}">{{ addressBook.id }}</a></td>
                 <td>{{ addressBook.firstName }}</td>
                 <td>{{ addressBook.lastName }}</td>
@@ -30,7 +32,6 @@
                 <td>{{ addressBook.phoneNumber }}</td>
                 <td>{% if addressBook.birthday %}{{ addressBook.birthday|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ addressBook.email }}</td>
-                </td>
                 <td>
                     <ul>
                         <li>

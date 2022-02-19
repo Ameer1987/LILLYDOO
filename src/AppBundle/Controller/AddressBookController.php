@@ -31,7 +31,6 @@ class AddressBookController extends Controller
 
         return $this->render('addressbook/index.html.twig', array(
             'addressBooks' => $addressBooks,
-            'pictures_path' => $this->getParameter('pictures_path'),
         ));
     }
 
@@ -88,9 +87,6 @@ class AddressBookController extends Controller
     public function editAction(Request $request, AddressBook $addressBook)
     {
         $deleteForm = $this->createDeleteForm($addressBook);
-        if ($addressBook->getPicture()) {
-            $addressBook->setPicture(new File($this->getParameter('pictures_directory') . '/' . $addressBook->getPicture()));
-        }
         $editForm = $this->createForm('AppBundle\Form\AddressBookType', $addressBook);
         $editForm->handleRequest($request);
 
@@ -105,7 +101,6 @@ class AddressBookController extends Controller
             'addressBook' => $addressBook,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-            'pictures_path' => $this->getParameter('pictures_path'),
         ));
     }
 

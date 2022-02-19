@@ -1,0 +1,11 @@
+{% block file_widget %}
+    {% spaceless %}
+
+        {{ block('form_widget') }}
+        {% if form.parent.vars.value.picture is not null %}
+            <img style="max-width: 100px;max-height: 100px;"
+                 src="{{ pictures_path~'/'~form.parent.vars.value.picture }}"/>
+        {% endif %}
+
+    {% endspaceless %}
+{% endblock %}
