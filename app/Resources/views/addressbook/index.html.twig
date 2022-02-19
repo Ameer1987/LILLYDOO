@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Addressbooks list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Street</th>
+                <th>Zip</th>
+                <th>Phonenumber</th>
+                <th>Birthday</th>
+                <th>Email</th>
+                <th>Picture</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for addressBook in addressBooks %}
+            <tr>
+                <td><a href="{{ path('addressbook_show', { 'id': addressBook.id }) }}">{{ addressBook.id }}</a></td>
+                <td>{{ addressBook.firstName }}</td>
+                <td>{{ addressBook.lastName }}</td>
+                <td>{{ addressBook.street }}</td>
+                <td>{{ addressBook.zip }}</td>
+                <td>{{ addressBook.phoneNumber }}</td>
+                <td>{% if addressBook.birthday %}{{ addressBook.birthday|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ addressBook.email }}</td>
+                <td>{{ addressBook.picture }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('addressbook_show', { 'id': addressBook.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('addressbook_edit', { 'id': addressBook.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('addressbook_new') }}">Create a new addressBook</a>
+        </li>
+    </ul>
+{% endblock %}
