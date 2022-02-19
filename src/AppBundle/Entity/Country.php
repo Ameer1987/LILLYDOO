@@ -42,6 +42,11 @@ class Country
         $this->cities = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
     /**
      * {@inheritdoc}
      */

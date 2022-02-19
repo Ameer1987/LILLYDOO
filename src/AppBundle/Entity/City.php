@@ -37,6 +37,11 @@ class City
      */
     protected $addresses;
 
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
     /**
      * {@inheritdoc}
      */
