@@ -91,7 +91,7 @@ class AddressBook
     /**
      * {@inheritdoc}
      */
-    public function getFirstName(): string
+    public function getFirstName()
     {
         return $this->firstName;
     }
@@ -107,7 +107,7 @@ class AddressBook
     /**
      * {@inheritdoc}
      */
-    public function getLastName(): string
+    public function getLastName()
     {
         return $this->lastName;
     }
@@ -123,7 +123,7 @@ class AddressBook
     /**
      * {@inheritdoc}
      */
-    public function getStreet(): string
+    public function getStreet()
     {
         return $this->street;
     }
@@ -139,7 +139,7 @@ class AddressBook
     /**
      * {@inheritdoc}
      */
-    public function getZip(): string
+    public function getZip()
     {
         return $this->zip;
     }
@@ -155,7 +155,7 @@ class AddressBook
     /**
      * {@inheritdoc}
      */
-    public function getCity(): City
+    public function getCity()
     {
         return $this->city;
     }
@@ -171,7 +171,7 @@ class AddressBook
     /**
      * {@inheritdoc}
      */
-    public function getCountry(): Country
+    public function getCountry()
     {
         return $this->country;
     }
@@ -187,7 +187,7 @@ class AddressBook
     /**
      * {@inheritdoc}
      */
-    public function getPhoneNumber(): string
+    public function getPhoneNumber()
     {
         return $this->phoneNumber;
     }
@@ -203,7 +203,7 @@ class AddressBook
     /**
      * {@inheritdoc}
      */
-    public function getBirthday(): \DateTimeInterface
+    public function getBirthday()
     {
         return $this->birthday;
     }
@@ -219,7 +219,7 @@ class AddressBook
     /**
      * {@inheritdoc}
      */
-    public function getEmail(): string
+    public function getEmail()
     {
         return $this->email;
     }
@@ -235,7 +235,7 @@ class AddressBook
     /**
      * {@inheritdoc}
      */
-    public function getPicture(): string
+    public function getPicture()
     {
         return $this->picture;
     }

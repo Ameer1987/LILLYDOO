@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -54,7 +53,7 @@ class Country
     /**
      * {@inheritdoc}
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -70,7 +69,7 @@ class Country
     /**
      * {@inheritdoc}
      */
-    public function getCities(): Collection
+    public function getCities()
     {
         return $this->cities;
     }
@@ -78,7 +77,7 @@ class Country
     /**
      * {@inheritdoc}
      */
-    public function hasCities(): bool
+    public function hasCities()
     {
         return !$this->cities->isEmpty();
     }
@@ -86,7 +85,7 @@ class Country
     /**
      * {@inheritdoc}
      */
-    public function hasCity(City $city): bool
+    public function hasCity(City $city)
     {
         return $this->cities->contains($city);
     }

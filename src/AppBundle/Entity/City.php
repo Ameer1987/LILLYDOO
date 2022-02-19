@@ -48,7 +48,7 @@ class City
     /**
      * {@inheritdoc}
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -64,7 +64,7 @@ class City
     /**
      * {@inheritdoc}
      */
-    public function getCountry(): Country
+    public function getCountry()
     {
         return $this->country;
     }
