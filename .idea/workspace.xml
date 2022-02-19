@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="303f9873-4846-4024-b6d4-1175c13e4b78" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/addressbook/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/addressbook/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/addressbook/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/addressbook/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/addressbook/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/addressbook/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AddressBookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AddressBookController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Form/AddressBookType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Form/AddressBookType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +97,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1645258314589</updated>
-      <workItem from="1645258316607" duration="9412000" />
+      <workItem from="1645258316607" duration="11143000" />
     </task>
     <task id="LOCAL-00001" summary="Add orm configuration">
       <created>1645263356330</created>
@@ -168,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645265055611</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="city and country relations">
+      <created>1645272669090</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1645272669090</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +192,7 @@
     <MESSAGE value="Address book crud" />
     <MESSAGE value="index page" />
     <MESSAGE value="Update datetime widget" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update datetime widget" />
+    <MESSAGE value="city and country relations" />
+    <option name="LAST_COMMIT_MESSAGE" value="city and country relations" />
   </component>
 </project>

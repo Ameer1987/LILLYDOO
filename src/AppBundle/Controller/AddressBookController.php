@@ -5,7 +5,10 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\AddressBook;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Addressbook controller.
@@ -28,6 +31,7 @@ class AddressBookController extends Controller
 
         return $this->render('addressbook/index.html.twig', array(
             'addressBooks' => $addressBooks,
+            'pictures_path' => $this->getParameter('pictures_path'),
         ));
     }
 
@@ -44,6 +48,8 @@ class AddressBookController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->uploadPicture($form, $addressBook);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($addressBook);
             $em->flush();
@@ -82,10 +88,14 @@ class AddressBookController extends Controller
     public function editAction(Request $request, AddressBook $addressBook)
     {
         $deleteForm = $this->createDeleteForm($addressBook);
+        if ($addressBook->getPicture()) {
+            $addressBook->setPicture(new File($this->getParameter('pictures_directory') . '/' . $addressBook->getPicture()));
+        }
         $editForm = $this->createForm('AppBundle\Form\AddressBookType', $addressBook);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $this->uploadPicture($editForm, $addressBook);
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('addressbook_edit', array('id' => $addressBook->getId()));
@@ -95,6 +105,7 @@ class AddressBookController extends Controller
             'addressBook' => $addressBook,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'pictures_path' => $this->getParameter('pictures_path'),
         ));
     }
 
@@ -130,7 +141,26 @@ class AddressBookController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('addressbook_delete', array('id' => $addressBook->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
+    }
+
+    private function uploadPicture($form, $addressBook)
+    {
+        $picture = $form->get('picture')->getData();
+
+        if ($picture) {
+            $originalFilename = pathinfo($picture->getClientOriginalName(), PATHINFO_FILENAME);
+            $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+            $newFilename = $safeFilename . '-' . uniqid() . '.' . $picture->guessExtension();
+
+            // Move the file to the directory where brochures are stored
+            try {
+                $picture->move($this->getParameter('pictures_directory'), $newFilename);
+            } catch (FileException $e) {
+                $this->addFlash('error', 'An error occurred while uploading the file.');
+            }
+
+            $addressBook->setPicture($newFilename);
+        }
     }
 }
